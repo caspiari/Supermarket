@@ -8,7 +8,7 @@ public class ProductsController {
     @Autowired
     private ProductsDao productsDao;
 
-    public Product getProduct(String name) throws Exception {
+    public Product getProduct(String name) {
         return productsDao.findByName(name);
     }
     
