@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SupermarketApplication<supermarket>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ariye.supermarket.SupermarketApplication",
+            "projectName": "supermarket",
+            "args": ""
+        }
+    ]
+}
