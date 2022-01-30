@@ -2,9 +2,11 @@ package com.ariye.supermarket;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 
 @Entity
 public class Product implements Serializable {
@@ -13,11 +15,27 @@ public class Product implements Serializable {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
     private int amountInStock;
-
     private float price;
+
+    public Product() {
+    }
+
+    public Product(String name, int amountInStock, float price) {
+        this.name = name;
+        this.amountInStock = amountInStock;
+        this.price = price;
+    }
+
+    public Product(Long id, String name, int amountInStock, float price) {
+        this.id = id;
+        this.name = name;
+        this.amountInStock = amountInStock;
+        this.price = price;
+    }
 
     public Long getId() {
         return this.id;

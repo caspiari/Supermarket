@@ -8,17 +8,36 @@ public class ProductsController {
     @Autowired
     private ProductsDao productsDao;
 
-    public Product getProduct(String name, int amount) throws Exception {
-        
-        Product product = productsDao.findByName(name);
-        if(product.getAmountInStock() < amount) {
-            throw new Exception("Not enought products in stock");
-        }
-        int newAmount = (product.getAmountInStock() - amount);
-        product.setAmountInStock(newAmount);
-        productsDao.save(product);
-
-        return product;
+    public Product getProduct(String name) throws Exception {
+        return productsDao.findByName(name);
     }
+    
+    public void addProduct(String name, int amount, float price) throws Exception {
+        if(name == null || name == "") {
+            throw new Exception("Name can't be null");
+        }
+        Product product = new Product(name, amount, price);
+        productsDao.save(product);
+    }
+
+    public void updateProduct(String name, Integer amount, Float price) {
+        Product product = productsDao.findByName(name);
+
+        if(amount != null) {
+            product.setAmountInStock(amount);
+        }
+
+        if(price != null) {
+            product.setPrice(price);
+        }
+
+        productsDao.save(product);
+    }
+
+    public void deleteProduct(String name) {
+        productsDao.deleteByName(name);
+    }
+    
+
     
 }
