@@ -17,7 +17,7 @@ public class ProductsApi {
     private ProductsController productsController;
 
     @GetMapping
-    public Product getProduct(@RequestParam("name") String name, @RequestParam("amount") int amount) {
+    public Product getProduct(@RequestParam("name") String name) {
         return productsController.getProduct(name);
     }
 
