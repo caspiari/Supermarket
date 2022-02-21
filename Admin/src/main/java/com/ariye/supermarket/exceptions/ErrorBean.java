@@ -1,4 +1,4 @@
-package com.ariye.supermarket.exeptions;
+package com.ariye.supermarket.exceptions;
 
 public class ErrorBean {
 
